@@ -1,12 +1,10 @@
  import React, { Component } from 'react';
 
-export default class Container {
+export default class Container extends Component {
   render() {
     return (
         <div className="cardContainer">
-          {
-          }
-        )}
+          
         </div>
       )
   }

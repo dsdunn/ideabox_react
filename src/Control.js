@@ -1,8 +1,8 @@
  import React, { Component } from 'react';
 
  export default class Control extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       titleValue: '',
       bodyValue: ''
@@ -13,6 +13,7 @@
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.props)
     this.props.buildCard(this.state.titleValue, this.state.bodyValue)
   }
 
@@ -35,8 +36,8 @@
   render() {
     return (
         <form className='control'>
-          <input type="text"className='titleInput'/>
-          <input type="text" className='bodyInput'/>
+          <input type="text"className='titleInput' onChange={this.updateTitle}/>
+          <input type="text" className='bodyInput'onChange={this.updateBody}/>
           <button className='submitButton' onClick={this.handleSubmit}>Submit</button>
         </form>
       )

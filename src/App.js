@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
 import Control from './Control.js';
 import Container from './Container.js';
 
@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   buildCard(title, body) {
-    let array = [...this.state.cards, {title: title, body: body};
+    let array = [...this.state.cards, {title: title, body: body}];
     this.setState({
       cards: array
     })
