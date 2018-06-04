@@ -13,18 +13,22 @@ class App extends Component {
     this.buildCard = this.buildCard.bind(this);
   }
 
-  buildCard(title, body) {
-    let array = [...this.state.cards, {title: title, body: body}];
+  buildCard(title, body, id) {
+    let array = [...this.state.cards, {title: title, body: body, id: id}];
     this.setState({
       cards: array
     })
+  }
+
+  deleteCard(id) {
+    //this.state.cards.
   }
 
   render() {
     return (
       <div className="App">
         <Control buildCard={this.buildCard}/>
-        <Container />
+        <Container cards={this.state.cards}/>
       </div>
     );
   }

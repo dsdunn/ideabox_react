@@ -5,16 +5,22 @@
     super(props);
     this.state = {
       titleValue: '',
-      bodyValue: ''
+      bodyValue: '',
+      id: ''
     };
     this.updateTitle = this.updateTitle.bind(this);
     this.updateBody = this.updateBody.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.props)
-    this.props.buildCard(this.state.titleValue, this.state.bodyValue)
+    let title = this.state.titleValue;
+    let body = this.state.bodyValue;
+    let id = new Date();
+    this.props.buildCard(title, body, id);
+    document.querySelector('.titleInput').value = '';
+    document.querySelector('.bodyInput').value = '';
   }
 
   updateTitle(e) {
