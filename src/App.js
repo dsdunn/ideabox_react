@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Control from './Control.js';
+import Container from './Container.js';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      cards: []
+    };
+    this.buildCard = this.buildCard.bind(this);
+  }
+
+  buildCard(title, body) {
+    let array = [...this.state.cards, {title: title, body: body};
+    this.setState({
+      cards: array
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Control buildCard={this.buildCard}/>
+        <Container />
       </div>
     );
   }
